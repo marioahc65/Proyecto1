@@ -1,0 +1,67 @@
+﻿@using Proyecto1API.Models;
+@model Vacuna
+@{
+    ViewData["Title"] = "Vacuna";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+
+        <form asp-action="GuardarVacuna" asp-controller="Home" method="post">
+            <input asp-for="VacunasId" type="hidden" />
+            <div class="mb-2 form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="IsSarampion" />
+                <label class="form-check-label">Tiene la vacuna de Sarampion?</label>
+
+            </div>
+            <div class="mb-2 form-check form-switch">
+                <label class="form-check-label">Tiene la vacuna de Rubeola?</label>
+                <input type="checkbox" class="form-check-input" asp-for="IsRubeola" />
+               
+            </div>
+            <div class="mb-2 form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="IsParatiditis" />
+                <label class="form-check-label">Tiene la vacuna de Paratidits?</label>
+                
+            </div>
+            <div class="mb-2 form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="IsTetano" />
+                <label class="form-check-label">Tiene la vacuna de Tetano?</label>
+
+            </div>
+            <div class="mb-2 form-check form-switch">            
+                <input type="checkbox" class="form-check-input" asp-for="IsHepatitisAb" />
+                <label class="form-check-label">Tiene la vacuna de Hepatitis A o B?</label>
+
+            </div>
+            <div class="mb-2 form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="IsInfluenza" />
+                <label class="form-check-label">Tiene la vacuna de la Influencia?</label>
+            </div>
+            <div class="mb-2 form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="IsCovid" />
+                <label class="form-check-label">Tiene la vacuna del COVID?</label>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Cuantas dosis tiene?</label>
+                <input type="number" class="form-control form-control-sm" asp-for="DosisCovid" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">En Caso de no tener la vacuna del COVID, debe digitar la razon del porque NO inyectarse contra COVID?</label>
+                <textarea class="form-control" rows="3" asp-for="RazonCovid"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-sm"> Guardar Cambios</button>
+
+            <a asp-action="Index" asp-controller="Home" class="btn btn-warning btn-sm">Volver atras</a>
+
+        </form>
+        <hr />
+
+    </div>
+</div>

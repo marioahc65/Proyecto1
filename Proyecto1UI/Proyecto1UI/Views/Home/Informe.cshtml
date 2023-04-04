@@ -1,0 +1,140 @@
+﻿@using Proyecto1API.Models;
+@model Informe
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Informe</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Proyecto1UI.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="card">
+        <div class="card-header">
+            @ViewBag.Accion
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Nombre del Medico</dt>
+
+                <dd class="col-sm-9" >@Model.medico.Nombre  @Model.medico.Apellido1  @Model.medico.Apellido2</dd>
+                <dt class="col-sm-3">Codigo del Medico</dt>
+
+                <dd class="col-sm-9">@Model.medico.Cprofesional</dd>
+                <dt class="col-sm-3">Nombre del Paciente</dt>
+
+                <dd class="col-sm-9">@Model.paciente.Nombre  @Model.paciente.Apellido1  @Model.paciente.Apellido2</dd>
+
+                <dt class="col-sm-3">Cedula del Paciente</dt>
+                <dd class="col-sm-9">@Model.paciente.Identificacion</dd>
+                
+
+                @if(Model.clinica != null)
+                {
+                    <dt class="col-sm-3">Datos de la Clinica</dt>
+                    <dd class="col-sm-9">
+                        <p>@Model.clinica.Nombre</p>
+                        <p>@Model.clinica.Cjuridica</p>
+                        <p>@Model.clinica.Pais</p>
+                        <p>@Model.clinica.Distrito</p>
+
+                    </dd>
+                }
+                <dt class="col-sm-3">Inyecciones</dt>
+                <dd class="col-sm-9">
+                    @if (Model.paciente.Vacunas.First().IsTetano)
+                    {
+                        <p>Tetano</p>
+                    }
+                    @if (Model.paciente.Vacunas.First().IsInfluenza)
+                    {
+                        <p>Influencia</p>
+                    }
+                    @if (Model.paciente.Vacunas.First().IsCovid)
+                    {
+                        <p>COVID</p>
+                        <p>@Model.paciente.Vacunas.First().DosisCovid</p>
+                    }
+                    @if (Model.paciente.Vacunas.First().IsRubeola)
+                    {
+                        <p>Rubeola</p>
+                    }
+                    @if (Model.paciente.Vacunas.First().IsSarampion)
+                    {
+                        <p>Sarampion</p>
+                    }
+                    @if (Model.paciente.Vacunas.First().IsParatiditis)
+                    {
+                        <p>Paratiditis</p>
+                    }
+             
+                    @if(Model.paciente.Vacunas.First().RazonCovid != "")
+                    {
+                    
+                        
+                        <dt class="col-sm-3">Razon por la cual no vacunarse del COVID</dt>
+
+                        <p>@Model.paciente.Vacunas.First().RazonCovid</p>
+                    }
+                    @if (@Model.paciente.Enfermedades.LastOrDefault().Sintomas != "[]")
+                    {
+                    <dt class="col-sm-3">Sintomas</dt>
+                    <dd class="col-sm-9">
+                            @Model.paciente.Enfermedades.LastOrDefault().Sintomas
+                    </dd>
+                    }
+                    @if (@Model.paciente.Enfermedades.LastOrDefault().Alergias != "[]")
+                    {
+                    <dt class="col-sm-3">Alergias</dt>
+                    <dd class="col-sm-9">
+                            @Model.paciente.Enfermedades.LastOrDefault().Alergias
+                    </dd>
+                    }
+                    @if (@Model.paciente.Enfermedades.LastOrDefault().NuevasEnfermedades != "[]")
+                    {
+                    <dt class="col-sm-3">Nuevas Enfermedades</dt>
+                    <dd class="col-sm-9">
+                            @Model.paciente.Enfermedades.LastOrDefault().NuevasEnfermedades
+                    </dd>
+                    }
+                    @if (@Model.paciente.Enfermedades.LastOrDefault().OtrasCondiciones != "")
+                    {
+                    <dt class="col-sm-3">Otras Condiciones</dt>
+                    <dd class="col-sm-9">
+                            @Model.paciente.Enfermedades.LastOrDefault().OtrasCondiciones
+                    </dd>
+                    }
+                    @if (@Model.paciente.Enfermedades.LastOrDefault().RCancer != "")
+                    {
+                    <dt class="col-sm-3">Reparicion del Cancer</dt>
+                    <dd class="col-sm-9">
+                            @Model.paciente.Enfermedades.LastOrDefault().RCancer
+                    </dd>
+                    }
+                    @if (@Model.paciente.Enfermedades.LastOrDefault().OtrosSintomas != "[]")
+                    {
+                    <dt class="col-sm-3">Otros Sintomas</dt>
+                    <dd class="col-sm-9">
+                            @Model.paciente.Enfermedades.LastOrDefault().OtrosSintomas
+                    </dd>
+                    }
+
+                <a asp-action="DescargarPDF" asp-controller="Home" class="btn btn-success btn-sm">Descargar</a>
+
+                
+            </dl>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

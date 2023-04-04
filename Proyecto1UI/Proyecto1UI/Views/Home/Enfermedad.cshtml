@@ -1,0 +1,137 @@
+﻿@using Proyecto1API.Models;
+@{
+    ViewData["Title"] = "Enfermedad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+
+        <form asp-action="GuardarEnfermedad" asp-controller="Home" method="post">
+            <div class="mb-2 form-check">
+            <label class="form-label">Sintomas? (Seleccion Multiple)</label>
+                <select class="form-select" multiple aria-label="Seleccion Multiple" name="Sintomas">
+                    <option value="Visita al medico o a la consulta de otro profesional de la salud">Visita al medico o a la consulta de otro profesional de la salud?</option>
+                    <option value="Visita la sala de emergencias o al centro de atencion urgente">Visita la sala de emergencias o al centro de atencion urgente?</option>
+                    <option value="Hospitalaciones">Hospitalaciones?</option>
+                    <option value="Hospitalaciones">Hospitalaciones prolongadas?</option>
+                    <option value="Enfermedades que pone en peligro la vida">Enfermedades que pone en peligro la vida?</option>
+                    <option value="Incapacidad o daño permanente">Incapacidad o daño permanente?</option>
+                    <option value="Paciente fallecido">Paciente fallecido?</option>
+                    <option value="Anomalia congenita o defecto de nacimiento">Anomalia congenita o defecto de nacimiento?</option>
+                    <option value="Aborto expontaneo o nacmiento sin vida">Aborto expontaneo o nacmiento sin vida?</option>
+                    <option value="Ninguna de las anteriores">Ninguna de las anteriores?</option>
+            </select>
+            </div>
+            <div class="mb-2 form-check">
+                <label class="form-label">Alergias conocidas? (Seleccion Multiple)</label>
+                <select class="form-select" multiple aria-label="Seleccion Multiple" name="Alergias">
+                    <option value="Medicamentos">Medicamentos</option>
+                    <option value="Polietilenglicol">Polietilenglicol</option>
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Medio Ambiente">Medio Ambiente</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+            <div class="mb-2 form-check">
+                <label class="form-label">Nuevas Enfermedades (Seleccion Multiple)</label>
+                <select class="form-select" multiple aria-label="Seleccion Multiple" name="NuevasEnfermedades">
+                    <option value="Enfermedad de Addison">Enfermedad de Addison</option>
+                    <option value="Alergias">Alergias</option>
+                    <option value="Arritmias">Arritmias</option>
+                    <option value="Fibrilación auricular">Fibrilación auricular</option>
+                    <option value="Vasculitis autoinmune">Vasculitis autoinmune</option>
+                    <option value="Parálisis de Bell (parálisis facial)">Parálisis de Bell (parálisis facial)</option>
+                    <option value="Bronquitis">Bronquitis</option>
+                    <option value="Cáncer">Cáncer</option>
+                    <option value="Enfermedad celíaca (intolerancia al gluten)">Enfermedad celíaca (intolerancia al gluten)</option>
+                    <option value="Enfermedad renal crónica">Enfermedad renal crónica</option>
+                    <option value="Insuficiencia cardíaca congestiva">Insuficiencia cardíaca congestiva</option>
+                    <option value="Enfermedad de Crohn">Enfermedad de Crohn</option>
+                    <option value="TVP (coágulos de sangre)">TVP (coágulos de sangre)</option>
+                    <option value="Diabetes">Diabetes</option>
+                    <option value="Encefalitis (inflamación cerebral/dolores de cabeza)">Encefalitis (inflamación cerebral/dolores de cabeza)</option>
+                    <option value="Epilepsia (convulsiones)">Epilepsia (convulsiones)</option>
+                    <option value="Enfermedades del corazón">Enfermedades del corazón</option>
+                    <option value="Herpes tipo 1">Herpes tipo 1</option>
+                    <option value="Herpes tipo 2">Herpes tipo 2</option>
+                    <option value="VIH">VIH</option>
+                    <option value="Hipertensión (presión arterial alta)">Hipertensión (presión arterial alta)</option>
+                    <option value="Enfermedad inflamatoria intestinal">Enfermedad inflamatoria intestinal</option>
+                    <option value="Enfermedad renal aguda">Enfermedad renal aguda</option>
+                    <option value="Enfermedad hepática">Enfermedad hepática</option>
+                    <option value="Lupus">Lupus</option>
+                    <option value="Aborto espontáneo">Aborto espontáneo</option>
+                    <option value="Esclerosis múltiple">Esclerosis múltiple</option>
+                    <option value="Miastenia gravis">Miastenia gravis</option>
+                    <option value="Infarto de miocardio (ataque al corazón)">Infarto de miocardio (ataque al corazón)</option>
+                    <option value="Miocarditis">Miocarditis</option>
+                    <option value="Osteoartritis">Osteoartritis</option>
+                    <option value="Pericarditis">Pericarditis</option>
+                    <option value="Anemia perniciosa">Anemia perniciosa</option>
+                    <option value="Neumonía">Neumonía</option>
+                    <option value="Parto prematuro">Parto prematuro</option>
+                    <option value="Psoriasis">Psoriasis</option>
+                    <option value="Artritis psoriásica">Artritis psoriásica</option>
+                    <option value="Embolia pulmonar">Embolia pulmonar</option>
+                    <option value="Artritis reumatoide">Artritis reumatoide</option>
+                    <option value="Herpes zóster">Herpes zóster</option>
+                    <option value="Síndrome de Sjogren">Síndrome de Sjogren</option>
+                    <option value="Nacimiento sin vida">Nacimiento sin vida</option>
+                    <option value="Accidente cerebrovascular">Accidente cerebrovascular</option>
+                    <option value="Ataques isquémicos transitorios (AIT)">Ataques isquémicos transitorios (AIT)</option>
+                    <option value="Trastorno de la tiroides">Trastorno de la tiroides</option>
+                    <option value="Colitis ulcerosa">Colitis ulcerosa</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Especifique otras condiciones</label>
+                <input type="text" class="form-control form-control-sm" name="OtrasCondiciones" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">¿Si ha desarrollado un nuevo cáncer o la reaparición de un cáncer existente, especifique el tipo de cáncer?
+                </label>
+                <input type="text" class="form-control form-control-sm" name="RCancer" />
+            </div>
+            <div class="mb-2 form-check">
+                <label class="form-label">Otros Sintomas? (Seleccion Multiple)</label>
+                <select class="form-select" multiple aria-label="Seleccion Multiple" name="OtrosSintomas">
+                    <option value="Síntomas de COVID o Enfermedad de COVID">Síntomas de COVID o Enfermedad de COVID</option>
+                    <option value="Disminución del bienestar">Disminución del bienestar</option>
+                    <option value="Disminución del estado de salud">Disminución del estado de salud</option>
+                    <option value="Fatiga extrema">Fatiga extrema</option>
+                    <option value="Incapacidad para participar en actividades rutinarias">Incapacidad para participar en actividades rutinarias</option>
+                    <option value="Pérdida de energía">Pérdida de energía</option>
+                    <option value="Dolor inexplicable">Dolor inexplicable</option>
+                    <option value="Debilidad">Debilidad</option>
+                    <option value="Fiebre inexplicable">Fiebre inexplicable</option>
+                    <option value="Sensaciones corporales inexplicables">Sensaciones corporales inexplicables</option>
+                    <option value="Sudores nocturnos">Sudores nocturnos</option>
+                    <option value="Sofocos">Sofocos</option>
+                    <option value="Intolerancia al frío">Intolerancia al frío</option>
+                    <option value="Intolerancia al calor">Intolerancia al calor</option>
+                    <option value="Sensibilidad a los cambios de temperatura">Sensibilidad a los cambios de temperatura</option>
+                    <option value="Cambio en la capacidad de caminar">Cambio en la capacidad de caminar</option>
+                    <option value="Cambio en el pensamiento">Cambio en el pensamiento</option>
+                    <option value="Ya no me siento como antes">Ya no me siento como antes</option>
+                    <option value="Aumento de peso inexplicable">Aumento de peso inexplicable</option>
+                    <option value="Pérdida de peso inexplicable">Pérdida de peso inexplicable</option>
+                    <option value="Sueño fragmentado">Sueño fragmentado</option>
+                    <option value="No puedo dormir">No puedo dormir</option>
+                    <option value="Insomnio">Insomnio</option>
+                </select>
+            </div>
+          
+            <button type="submit" class="btn btn-success btn-sm">Registrar</button>
+
+            <a asp-action="Index" asp-controller="Home" class="btn btn-warning btn-sm">Volver atras</a>
+
+        </form>
+        <hr />
+
+    </div>
+</div>

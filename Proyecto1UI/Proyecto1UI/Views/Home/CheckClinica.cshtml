@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "CheckClinica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Verificar Clinica</h1>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Historial Familiar
+    </div>
+    <div class="card-body">
+        <form asp-action="Clinica" asp-controller="Home" method="get">
+            <div class="mb-2">
+                <label class="form-label">Ingresar Cedula Juridica</label>
+                <input type="text" class="form-control form-control-sm" required name="CJuridica" />
+            </div>
+            <button type="submit" class="btn btn-success btn-sm">Validar Cedula Juridica</button>
+            <a asp-action="CheckPaciente" asp-controller="Home" class="btn btn-warning btn-sm">Saltar</a>
+        </form>
+
+        <hr />
+    </div>
+</div>
+

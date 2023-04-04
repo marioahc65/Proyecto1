@@ -1,0 +1,80 @@
+﻿@using Proyecto1API.Models;
+@model Paciente
+@{
+    ViewData["Title"] = "Paciente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+
+        <form asp-action="GuardarPaciente" asp-controller="Home" method="post">
+            <input asp-for="PacienteId" type="hidden" />
+            <div class="mb-2">
+                <label class="form-label">Cedula de Identidad</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Identificacion" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Nombre" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Primer Apellido</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Apellido1" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Segundo Apellido</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Apellido2" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Fecha Nacmiento</label>
+                <input type="date" class="form-control form-control-sm" asp-for="Fnacimiento" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Masculino</label>
+                @Html.RadioButtonFor(m => m.Sexo,"M")
+                <label class="form-label">Femenino</label>
+                @Html.RadioButtonFor(m => m.Sexo,"F")
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Telefono</label>
+                <input type="tel" class="form-control form-control-sm" asp-for="Telefono" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Pais</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Pais" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Estado</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Estado" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Distrito</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Distrito" required />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Estado Civil</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Ecivil" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control form-control-sm" asp-for="Email" required />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Ocupacion</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Ocupacion" required />
+            </div>
+
+            <button type="submit" class="btn btn-success btn-sm"> Guardar Cambios</button>
+
+            <a asp-action="HistorialFamiliar" asp-controller="Home" class="btn btn-warning btn-sm">Volver atras</a>
+
+        </form>
+        <hr />
+
+    </div>
+</div>

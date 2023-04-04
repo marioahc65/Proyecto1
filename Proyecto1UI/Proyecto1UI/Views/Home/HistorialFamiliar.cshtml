@@ -1,0 +1,25 @@
+﻿@using Proyecto1API.Models;
+
+@{
+    ViewData["Title"] = "Historial Familiar";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido al Historial familiar</h1>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Historial Familiar
+    </div>
+    <div class="card-body">
+        <form asp-action="Medico" asp-controller="Home" method="get">
+            <div class="mb-2">
+                <label class="form-label">Ingresar Código Profesional</label>
+                <input type="text" class="form-control form-control-sm" required name="CProfesional" />
+            </div>
+            <button type="submit" class="btn btn-success btn-sm">Validar Código Profesional</button>
+        </form>
+        <hr />
+    </div>
+</div>
